@@ -1,0 +1,84 @@
+{
+	"ID": "urn:com.ibm.pathfinder.model.crypto:Certificate:1.0.0",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A cryptographic certificate.",
+	"type": "object",
+	"unevaluatedProperties": true,
+	"properties": {
+		"format": {
+			"type": "string",
+			"nullable": true,
+			"description": "The format (representation?) of the certificate."
+		},
+		"version": {
+			"type": "string",
+			"nullable": true,
+			"description": "The version of the certificate."
+		},
+		"subject": {
+			"type": "string",
+			"nullable": true,
+			"description": "The subject for which the certificate was issued."
+		},
+		"issuer": {
+			"type": "string",
+			"description": "The issuer of the certificate."
+		},
+		"algorithm": {
+			"type": "string",
+			"nullable": true,
+			"description": "The algorithm used to verify the certificate."
+		},
+		"signature_algo": {
+			"type": "string",
+			"description": "The the algorithm that was used to sign the certificate."
+		},
+		"signature_algo_oid": {
+			"type": "string",
+			"nullable": true,
+			"description": "The object identifier of the signature algorithm."
+		},
+		"not_before": {
+			"type": "string",
+			"format": "date",
+			"nullable": true,
+			"description": "The start of the validity period."
+		},
+		"not_after": {
+			"type": "string",
+			"format": "date",
+			"nullable": true,
+			"description": "The end of the validity period."
+		},
+		"extensions": {
+			"type": "string",
+			"nullable": true,
+			"description": "Extensions."
+		}
+	},
+	"required": [
+		"issuer",
+		"signature_algo"
+	],
+	"allOf": [
+		{
+			"type": "object",
+			"properties": {
+				"json_schema_ref": {
+					"type": "string",
+					"description": "The id of the JSON schema used to encode the payload.",
+					"pattern": "^urn:(?<groupid>[a-z._-]+):(?<schemaid>[a-z._-]+):(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)$"
+				},
+				"edf_id": {
+					"description": "Reference to the entity.",
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": [
+				"json_schema_ref",
+				"edf_id"
+			]
+		}
+	]
+}

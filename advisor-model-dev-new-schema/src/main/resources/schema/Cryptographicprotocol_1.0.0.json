@@ -1,0 +1,52 @@
+{
+	"ID": "urn:com.ibm.pathfinder.model.crypto:Cryptographicprotocol:1.0.0",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A cryptographic protocol.",
+	"type": "object",
+	"unevaluatedProperties": true,
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "The name of the protocol such as 'TLS' or 'SSH'."
+		},
+		"type": {
+			"type": "string",
+			"description": "The type of the protocol, e.g. IPSEC."
+		},
+		"purpose": {
+			"type": "string",
+			"nullable": true,
+			"description": "The purpose of the protocol."
+		},
+		"version": {
+			"type": "string",
+			"nullable": true,
+			"description": "The protocol version such as '1.3'"
+		}
+	},
+	"required": [
+		"name",
+		"type"
+	],
+	"allOf": [
+		{
+			"type": "object",
+			"properties": {
+				"json_schema_ref": {
+					"type": "string",
+					"description": "The id of the JSON schema used to encode the payload.",
+					"pattern": "^urn:(?<groupid>[a-z._-]+):(?<schemaid>[a-z._-]+):(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)$"
+				},
+				"edf_id": {
+					"description": "Reference to the entity.",
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": [
+				"json_schema_ref",
+				"edf_id"
+			]
+		}
+	]
+}

@@ -1,0 +1,37 @@
+{
+	"ID": "urn:com.ibm.pathfinder.model.dataobs:Domain:1.1.0",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A network domain, can also specify a dns endpoint.",
+	"type": "object",
+	"unevaluatedProperties": true,
+	"properties": {
+		"dns": {
+			"type": "string",
+			"description": "The domain distinguishes private network addresses."
+		}
+	},
+	"required": [
+		"dns"
+	],
+	"allOf": [
+		{
+			"type": "object",
+			"properties": {
+				"json_schema_ref": {
+					"type": "string",
+					"description": "The id of the JSON schema used to encode the payload.",
+					"pattern": "^urn:(?<groupid>[a-z._-]+):(?<schemaid>[a-z._-]+):(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)$"
+				},
+				"edf_id": {
+					"description": "Reference to the entity.",
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": [
+				"json_schema_ref",
+				"edf_id"
+			]
+		}
+	]
+}

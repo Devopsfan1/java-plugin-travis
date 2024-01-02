@@ -1,0 +1,42 @@
+{
+	"ID": "urn:com.ibm.pathfinder.model.crypto:Ciphersuite:1.0.0",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A grouping of cryptographic entities that are needed to secure a connection.",
+	"type": "object",
+	"unevaluatedProperties": true,
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "The name of the ciphersuite indicating a set of algorithms such as, 'TLS_AES_128_GCM_SHA256'."
+		},
+		"security": {
+			"type": "string",
+			"nullable": true,
+			"description": "A description of the security level provided by this suite."
+		}
+	},
+	"required": [
+		"name"
+	],
+	"allOf": [
+		{
+			"type": "object",
+			"properties": {
+				"json_schema_ref": {
+					"type": "string",
+					"description": "The id of the JSON schema used to encode the payload.",
+					"pattern": "^urn:(?<groupid>[a-z._-]+):(?<schemaid>[a-z._-]+):(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)$"
+				},
+				"edf_id": {
+					"description": "Reference to the entity.",
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": [
+				"json_schema_ref",
+				"edf_id"
+			]
+		}
+	]
+}

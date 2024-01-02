@@ -1,0 +1,42 @@
+{
+	"ID": "urn:com.ibm.pathfinder.model.crypto:Pkencryption:1.0.0",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A description of a public key encryption.",
+	"type": "object",
+	"unevaluatedProperties": true,
+	"properties": {
+		"algorithm": {
+			"type": "string",
+			"description": "The name of the public key encryption algorithm."
+		},
+		"key_length": {
+			"type": "integer",
+			"description": "The length of the encryption key."
+		}
+	},
+	"required": [
+		"algorithm",
+		"key_length"
+	],
+	"allOf": [
+		{
+			"type": "object",
+			"properties": {
+				"json_schema_ref": {
+					"type": "string",
+					"description": "The id of the JSON schema used to encode the payload.",
+					"pattern": "^urn:(?<groupid>[a-z._-]+):(?<schemaid>[a-z._-]+):(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)$"
+				},
+				"edf_id": {
+					"description": "Reference to the entity.",
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": [
+				"json_schema_ref",
+				"edf_id"
+			]
+		}
+	]
+}
