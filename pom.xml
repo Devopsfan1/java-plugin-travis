@@ -100,7 +100,7 @@
 		    <artifactId>opencsv</artifactId>
 		    <version>4.1</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.ibm.advisor</groupId>
 			<artifactId>advisor-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -109,7 +109,7 @@
 			<groupId>com.ibm.advisor</groupId>
 			<artifactId>advisor-model-validator</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
