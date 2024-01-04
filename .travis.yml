@@ -7,9 +7,9 @@ before_script:
   - git clone https://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@github.ibm.com/quantum-safe-engineering/advisor-model.git -b dev-new-schema
   - git clone https://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@github.ibm.com/quantum-safe-engineering/advisor-model-validator.git
 
-#script: 
-  #- ./mvnw -f advisor-model-dev-new-schema/ clean install -DskipTests=true
-  #- ./mvnw -f advisor-model-validator-main/ clean install -DskipTests=true
+script: 
+  - ./mvnw -f advisor-model/ clean install -DskipTests=true
+  - ./mvnw -f advisor-model-validator/ clean install -DskipTests=true
 
 notifications:
   email: pooja.naik2@ibm.com
