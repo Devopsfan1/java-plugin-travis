@@ -1,11 +1,14 @@
 language: java
 jdk:
-  - openjdk17
   - openjdk8
-  - openjdk11
+
 
 script:
-  - ./mvnw clean install
+  - git clone https://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@github.ibm.com/quantum-safe-engineering/advisor-model.git -b dev-new-schema
+  - ./mvnw -f advisor-model-dev-new-schema/ clean install -DskipTests=true
+  - git clone https://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@github.ibm.com/quantum-safe-engineering/advisor-model-validator.git
+  - ./mvnw -f advisor-model-validator-main/ clean install -DskipTests=true
+
 
 notifications:
   email: pooja.naik2@ibm.com
